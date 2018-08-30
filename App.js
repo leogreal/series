@@ -1,23 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from "react-navigation";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import LoginPage from "./src/pages/LoginPage";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+export default createStackNavigator(
+  {
+    Login: {
+      screen: LoginPage,
+      navigationOptions: {
+        title: "Bem Vindo!"
+      }
+    }
   },
-});
+  {
+    navigationOptions: {
+      title: "Series!",
+      headerTintColor: "white",
+      headerStyle: {
+        backgroundColor: "#6ca2f7",
+        borderBottomWidth: 1,
+        borderBottomColor: "#c5c5c5"
+      },
+      headerTitleStyle: {
+        color: "white",
+        fontSize: 30
+      }
+    }
+  }
+);
